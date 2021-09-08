@@ -1,0 +1,159 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'thinca/vim-submode'
+hook_add = '''
+    let g:submode_leave_with_key = 1
+    let g:submode_keep_leaving_key = 1
+'''
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+    nmap <Space>a <Plug>(LiveEasyAlign)
+    xmap <Space>a <Plug>(LiveEasyAlign)
+'''
+
+[[plugins]]
+repo    = 'vim-airline/vim-airline'
+depends = ['vim-airline-themes']
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = "tpope/vim-fugitive"
+hook_add = 'source ~/.config2/nvim/.cache/dein/repos/github.com/tpope/vim-fugitive/plugin/fugitive.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+
+[[plugins]]
+repo = 'mtsr404/denite.nvim'
+
+[[plugins]]
+repo = 'tyru/capture.vim'
+
+[[plugins]]
+repo = 'haya14busa/vim-operator-flashy'
+depends = ['vim-operator-user']
+hook_add = '''
+	map y <Plug>(operator-flashy)
+	nmap Y <Plug>(operator-flashy)$
+	map R  <Plug>(operator-replace)
+'''
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = "kana/vim-operator-replace"
+
+[[plugins]]
+repo = "thinca/vim-qfreplace"
+
+[[plugins]]
+repo = "tpope/vim-surround"
+
+[[plugins]]
+repo = 'tyru/caw.vim' 
+
+[[plugins]]
+repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'notomo/denite-keymap'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'mtsr404/denite-gitr'
+
+[[plugins]]
+repo = 'posva/vim-vue'
+
+[[plugins]]
+repo = 'Valloric/MatchTagAlways'
+
+[[plugins]]
+repo ='HerringtonDarkholme/yats.vim'
+
+[[plugins]]
+repo ='Shougo/context_filetype.vim'
+
+# [[plugins]]
+# repo = 'mhartington/nvim-typescript'
+# build = './install.sh'
+# hook_add = '''
+# '''
+
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_event = 'InsertCharPre'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+hook_add = '''
+  let g:neosnippet#snippets_directory=g:xdg_dir.'/snippets'
+  let g:neosnippet#enable_snipmate_compatibility = 1 
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo ='vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo ='cespare/vim-toml'
+
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = 'coc#util#install()'
+revo= 'release' 
+hook_add = '''
+'''
+
+
+# [[plugins]]
+# repo = 'neoclide/coc-tsserver'
+# build = 'yarn install --frozen-lockfile'
+
+
+# [[plugins]]
+# repo = 'neoclide/coc-vetur'
+# build = 'yarn install --frozen-lockfile'
+
+
+[[plugins]]
+repo = 'janko/vim-test'
+
+
+[[plugins]]
+repo = 'kana/vim-altr'
+n_map = {n = '<Plug>'}
+hook_add = '''
+nmap [file]f <Plug>(altr-forward)
+nmap [file]b <Plug>(altr-back)
+'''

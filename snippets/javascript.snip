@@ -1,0 +1,27 @@
+snippet cl
+	console.log(${1:obj})
+
+
+snippet jp
+	JSON.parse(${1:obj})
+
+snippet js
+	JSON.stringify(${1:obj})
+
+
+snippet foreach
+	${1:array}.forEach((${2:item}) => {
+		${0}
+	})
+
+snippet th
+    this.${1}
+
+
+snippet reduce
+    ${1}.reduce((acc,e) => {
+        ${3}
+    },${2});
+
+snippet r
+    return

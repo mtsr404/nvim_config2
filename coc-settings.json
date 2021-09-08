@@ -1,0 +1,9 @@
+{
+	"list.normalMappings": {
+		"<CR>" : "action:tabe",
+		"t": "action:tabe",
+		"v": "action:vsplit",
+		"s": "action:split",
+		"d": "expr:GetDeleteAction"
+	}
+}
