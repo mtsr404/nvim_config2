@@ -1,3 +1,6 @@
+let g:mapleader = ','
+let g:maplocalleader = '<Leader>l'
+
 inoremap jj <ESC>
 tnoremap jj <C-\><C-n>
 

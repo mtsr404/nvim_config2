@@ -157,3 +157,8 @@ hook_add = '''
 nmap [file]f <Plug>(altr-forward)
 nmap [file]b <Plug>(altr-back)
 '''
+
+[[plugins]]
+repo = 'vlime/vlime'
+rtp = 'vim/'
+
