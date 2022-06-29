@@ -39,6 +39,11 @@ call denite#custom#map('grep', 'jj', '<denite:enter_mode:normal>','noremap')
 call denite#custom#map('insert', '<C-j>', '<denite:enter_mode:normal>', 'noremap')
 "ESCキーでdeniteを終了
 call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+	noremap <C-c> <esc>
+endfunction
+
 "C-N,C-Pで上下移動
 call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')

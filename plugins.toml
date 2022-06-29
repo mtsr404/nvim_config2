@@ -38,8 +38,12 @@ repo = 'Shougo/unite.vim'
 [[plugins]]
 repo = 'Shougo/unite-outline'
 
+# [[plugins]]
+# repo = 'mtsr404/denite.nvim'
+ 
 [[plugins]]
-repo = 'mtsr404/denite.nvim'
+repo = 'Shougo/denite.nvim'
+# revo = '0f8d216b6bcb4be708dce1adfe1a789fff57ca07' 
 
 [[plugins]]
 repo = 'tyru/capture.vim'

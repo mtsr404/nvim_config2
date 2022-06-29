@@ -3,10 +3,10 @@ set nocompatible
 
 " Pythonのパス
 let g:python3_host_prog = fnameescape('/usr/local/bin/python3')
-let g:python_host_prog  = fnameescape('/usr/local/bin/python2')
+let g:python_host_prog  = fnameescape('/usr/bin/python2')
 
 " Nodeのパス
-let g:node_host_prog = '~/.nodebrew/current/bin/neovim-node-host'
+let g:node_host_prog = '/Users/mtsr404/.nodebrew/current/bin/neovim-node-host'
 
 " deinの関連のパス
 let dein_path = 'github.com/Shougo/dein.vim'

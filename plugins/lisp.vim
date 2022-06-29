@@ -22,7 +22,7 @@ endfunction
 
 " :call vlime#server#New(v:true, get(g:, "my_sbcl", v:false))
 
-; 括弧を虹色で表示
+" 括弧を虹色で表示
 let lisp_rainbow=1
 
 autocmd FileType lisp setlocal autoindent

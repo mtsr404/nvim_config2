@@ -20,3 +20,10 @@ function! s:show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
+
+let g:coc_global_extensions = [
+      \'@yaegassy/coc-intelephense',
+      \'coc-json', 
+      \'coc-tsserver', 
+      \'coc-vetur', 
+\]
