@@ -1,7 +1,7 @@
 nnoremap    [Denite]   <Nop>
 nmap <Space>d [Denite]
 
-// https://secret-garden.hatenablog.com/entry/2021/05/16/152715
+" https://secret-garden.hatenablog.com/entry/2021/05/16/152715
 
 highlight myDeniteMatchText cterm=NONE guifg=#f6a3a3 guibg=NONE
 highlight myDeniteInsert cterm=NONE guifg=NONE guibg=#3d5066
@@ -20,6 +20,11 @@ call denite#custom#option('default', {
     \ })
 
 
+
+
+
+
+
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
@@ -36,8 +41,65 @@ function! s:denite_my_settings() abort
 	nnoremap <silent><buffer><expr> <Space>
 				\ denite#do_map('toggle_select').'j'
 
-	syntax keyword slash / 
-	highlight link slash Error
+	" deniteバッファでスプリット
+	nnoremap <silent><buffer><expr> ss
+				\ denite#do_map('do_action','split')
+	nnoremap <silent><buffer><expr> sv
+				\ denite#do_map('do_action','vsplit')
+
+
+	" syntax sync fromstart
+	" syntax match slash /\//
+	" highlight link slash Error
+
+	"  qfreplace ========================================================================================
+	function! DeniteQfreplace(context) abort
+		tabnew
+		let qflist = []
+		for target in a:context['targets']
+			if !has_key(target, 'action__line') || !has_key(target, 'action__text')
+				continue
+			endif
+			let dict = {'filename': target['action__path'], 'lnum': target['action__line'], 'text': target['action__text']}
+			call add(qflist, dict)
+		endfor
+		if len(qflist) == 0
+			return
+		endif
+		call setqflist(qflist)
+		call qfreplace#start('')
+		only
+	endfunction
+
+	function! TestReplace(context) abort
+		echo 'TestReplace'
+	endfunction
+
+	" call denite#custom#action('file', 'qfreplace', {context ->  DeniteQfreplace(context)})
+	"
+	" call denite#custom#action('source/file', 'test',
+	"		\ {context -> execute('let g:bar = 1')})
+	
+	call denite#custom#action('file', 'qfreplace', {context -> execute('let g:bar = 1')})
+	nnoremap <silent><buffer><expr> r
+				\ denite#do_map('do_action', 'qfreplace')
+
+	nnoremap <silent><buffer><expr> f 
+				\ denite#do_map('do_action', 'quickfix')
+
+
+	" call denite#custom#action('file', 'test2',
+	"		\{context -> denite#do_action(
+	"		\	context, 'open', context['targets'])
+	" 		})
+	" 
+	" 
+	" call denite#custom#action('file', 'test', {context -> execute("echo 'testtest'")})
+	" nnoremap <silent><buffer><expr> t
+	"			\ denite#do_map('do_action','test')
+
+
+	"  ========================================================================================
 
 endfunction
 
@@ -52,19 +114,15 @@ function! s:denite_filter_my_settings() abort
        " フィルタリング中に Enter を押すと選択されている候補のデフォルトアクションを実行する
         autocmd InsertEnter <buffer> imap <silent><buffer> <CR> <ESC><CR><CR>
        " インサートを抜けた時に自動的にフィルタウィンドウを閉じる
-        " autocmd InsertEnter <buffer> inoremap <silent><buffer> <Esc> <Esc><C-w><C-q>:<C-u>call denite#move_to_parent()<CR>
+        autocmd InsertEnter <buffer> inoremap <silent><buffer> <Esc> <Esc><C-w><C-q>:<C-u>call denite#move_to_parent()<CR>
     augroup END
 
 	" フィルタバッファでは自動補完を無効にしておく
     call deoplete#custom#buffer_option('auto_complete', v:false)
 
-	" フィルタバッファで <CR> すると候補を実行する
-	inoremap <silent><buffer> <CR> <Esc>
-				\:call denite#move_to_parent()<CR>
-				\<CR>
 
-	" フィルタバッファでEscかC-cでDenite終了
-	imap <silent><buffer> <Esc> <Esc>q:call denite#move_to_parent()<CR> 
+	" フィルタバッファでC-cでDenite終了
+	" imap <silent><buffer> <Esc> <Esc>q:call denite#move_to_parent()<CR> 
 	imap <silent><buffer> <C-c> <Esc>q:call denite#move_to_parent()<CR>
 
 	" ステータスラインに file/rec(10/100) のような候補数を表示させる
@@ -100,6 +158,16 @@ function! s:denite_filter_my_settings() abort
 				\<C-u>
 				\:call denite#move_to_filter()<CR>A
 
+
+	" フィルタバッファで <CR> すると候補を実行する
+	inoremap <silent><buffer> <CR> <Esc>
+				\:call denite#move_to_parent()<CR>
+				\<CR>
+
+
+	" フィルタバッファからDeniteバッファに移動
+	inoremap <silent><buffer> <C-j> <Esc>
+				\:call denite#move_to_parent()<CR>
 
 
 endfunction
@@ -199,9 +267,6 @@ call denite#custom#action('file', 'test2',
 call denite#custom#action('source/file', 'test',
 			\ {context -> execute('let g:bar = 1')})
 
-
-" ↑default in help
-"  custom ========================================================================================
 
 
 " :Denite のデフォルトの設定

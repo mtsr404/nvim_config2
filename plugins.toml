@@ -13,17 +13,13 @@ repo = 'easymotion/vim-easymotion'
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
-hook_add = '''
-    nmap <Space>a <Plug>(LiveEasyAlign)
-    xmap <Space>a <Plug>(LiveEasyAlign)
-'''
 
-[[plugins]]
-repo    = 'vim-airline/vim-airline'
-depends = ['vim-airline-themes']
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
+# [[plugins]]
+# repo    = 'vim-airline/vim-airline'
+# depends = ['vim-airline-themes']
+# 
+# [[plugins]]
+# repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
 repo = "tpope/vim-fugitive"
@@ -165,4 +161,18 @@ nmap [file]b <Plug>(altr-back)
 [[plugins]]
 repo = 'vlime/vlime'
 rtp = 'vim/'
+
+
+[[plugins]]
+repo = 'github/copilot.vim'
+
+
+[[plugins]]
+ repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+ repo = 'nvim-lualine/lualine.nvim'
+
+[[plugins]]
+ repo = 'nvim-treesitter/nvim-treesitter'
 
