@@ -12,6 +12,10 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true, -- これを設定することでtree-sitterによるインデントを有効にできます
+	disable = {     -- 一部の言語では無効にする
+		'php',
+		'vue'
+	}
   }
 }
 EOF

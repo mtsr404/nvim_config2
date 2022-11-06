@@ -14,13 +14,6 @@ repo = 'easymotion/vim-easymotion'
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 
-# [[plugins]]
-# repo    = 'vim-airline/vim-airline'
-# depends = ['vim-airline-themes']
-# 
-# [[plugins]]
-# repo = 'vim-airline/vim-airline-themes'
-
 [[plugins]]
 repo = "tpope/vim-fugitive"
 hook_add = 'source ~/.config2/nvim/.cache/dein/repos/github.com/tpope/vim-fugitive/plugin/fugitive.vim'
@@ -34,12 +27,8 @@ repo = 'Shougo/unite.vim'
 [[plugins]]
 repo = 'Shougo/unite-outline'
 
-# [[plugins]]
-# repo = 'mtsr404/denite.nvim'
-# 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-# revo = '0f8d216b6bcb4be708dce1adfe1a789fff57ca07' 
 
 [[plugins]]
 repo = 'tyru/capture.vim'
@@ -78,26 +67,20 @@ repo = 'notomo/denite-keymap'
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
-repo = 'mtsr404/denite-gitr'
+ repo = 'nvim-lualine/lualine.nvim'
 
 [[plugins]]
-repo = 'posva/vim-vue'
+ repo = 'nvim-treesitter/nvim-treesitter'
 
-[[plugins]]
-repo = 'Valloric/MatchTagAlways'
 
+
+
+# YATS: Yet Another TypeScript Syntax
 [[plugins]]
 repo ='HerringtonDarkholme/yats.vim'
 
 [[plugins]]
 repo ='Shougo/context_filetype.vim'
-
-# [[plugins]]
-# repo = 'mhartington/nvim-typescript'
-# build = './install.sh'
-# hook_add = '''
-# '''
-
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -129,21 +112,28 @@ repo ='cespare/vim-toml'
 
 
 [[plugins]]
+ repo = 'kyazdani42/nvim-web-devicons'
+
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 build = 'coc#util#install()'
 revo= 'release' 
 hook_add = '''
 '''
 
+[[plugins]]
+repo = 'mtsr404/denite-gitr'
 
-# [[plugins]]
-# repo = 'neoclide/coc-tsserver'
-# build = 'yarn install --frozen-lockfile'
+[[plugins]]
+repo = 'Valloric/MatchTagAlways'
 
-
-# [[plugins]]
-# repo = 'neoclide/coc-vetur'
-# build = 'yarn install --frozen-lockfile'
+# カーソルがめっちゃ重くなる(.vue以外も)
+[[plugins]]
+repo = 'posva/vim-vue'
+hook_add = '''
+let g:vue_pre_processors = 'detect_on_enter'
+'''
 
 
 [[plugins]]
@@ -165,14 +155,3 @@ rtp = 'vim/'
 
 [[plugins]]
 repo = 'github/copilot.vim'
-
-
-[[plugins]]
- repo = 'kyazdani42/nvim-web-devicons'
-
-[[plugins]]
- repo = 'nvim-lualine/lualine.nvim'
-
-[[plugins]]
- repo = 'nvim-treesitter/nvim-treesitter'
-
