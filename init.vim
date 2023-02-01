@@ -2,7 +2,9 @@ scriptencoding utf-8
 set nocompatible
 
 " Pythonのパス
-let g:python3_host_prog = fnameescape('/usr/local/bin/python3')
+" let g:python3_host_prog = system('echo $(which python3)') 
+let g:python3_host_prog = fnameescape('/usr/bin/python3') 
+" let g:python_host_prog  = system('echo -n $(which python2)') 
 let g:python_host_prog  = fnameescape('/usr/bin/python2')
 
 " Nodeのパス

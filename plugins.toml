@@ -155,3 +155,8 @@ rtp = 'vim/'
 
 [[plugins]]
 repo = 'github/copilot.vim'
+
+
+[[plugins]]
+repo = 'brooth/far.vim'
+

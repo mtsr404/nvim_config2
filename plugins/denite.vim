@@ -71,10 +71,6 @@ function! s:denite_my_settings() abort
 		only
 	endfunction
 
-	function! TestReplace(context) abort
-		echo 'TestReplace'
-	endfunction
-
 	" call denite#custom#action('file', 'qfreplace', {context ->  DeniteQfreplace(context)})
 	"
 	" call denite#custom#action('source/file', 'test',
