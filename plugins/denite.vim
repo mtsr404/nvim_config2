@@ -20,6 +20,25 @@ call denite#custom#option('default', {
     \ })
 
 
+function! MyDeniteReplace(context)
+	let qflist = []
+	for target in a:context['targets']
+		if !has_key(target, 'action__path') | continue | endif
+		if !has_key(target, 'action__line') | continue | endif
+		if !has_key(target, 'action__text') | continue | endif
+
+		call add(qflist, {
+					\ 'filename': target['action__path'],
+					\ 'lnum': target['action__line'],
+					\ 'text': target['action__text']
+					\ })
+	endfor
+	call setqflist(qflist)
+	call qfreplace#start('')
+endfunction
+
+call denite#custom#action('file', 'qfreplace', function('MyDeniteReplace'))
+
 
 
 
@@ -47,41 +66,44 @@ function! s:denite_my_settings() abort
 	nnoremap <silent><buffer><expr> sv
 				\ denite#do_map('do_action','vsplit')
 
+	nnoremap <silent><buffer><expr> r
+				\ denite#do_map('do_action', 'qfreplace')
+
+
 
 	" syntax sync fromstart
 	" syntax match slash /\//
 	" highlight link slash Error
 
 	"  qfreplace ========================================================================================
-	function! DeniteQfreplace(context) abort
-		tabnew
-		let qflist = []
-		for target in a:context['targets']
-			if !has_key(target, 'action__line') || !has_key(target, 'action__text')
-				continue
-			endif
-			let dict = {'filename': target['action__path'], 'lnum': target['action__line'], 'text': target['action__text']}
-			call add(qflist, dict)
-		endfor
-		if len(qflist) == 0
-			return
-		endif
-		call setqflist(qflist)
-		call qfreplace#start('')
-		only
-	endfunction
+	" function! DeniteQfreplace(context) abort
+	" 	tabnew
+	" 	let qflist = []
+	" 	for target in a:context['targets']
+	" 		if !has_key(target, 'action__line') || !has_key(target, 'action__text')
+	" 			continue
+	" 		endif
+	" 		let dict = {'filename': target['action__path'], 'lnum': target['action__line'], 'text': target['action__text']}
+	" 		call add(qflist, dict)
+	" 	endfor
+	" 	if len(qflist) == 0
+	" 		return
+	" 	endif
+	" 	call setqflist(qflist)
+	" 	call qfreplace#start('')
+	" 	only
+	" endfunction
 
 	" call denite#custom#action('file', 'qfreplace', {context ->  DeniteQfreplace(context)})
 	"
 	" call denite#custom#action('source/file', 'test',
 	"		\ {context -> execute('let g:bar = 1')})
 	
-	call denite#custom#action('file', 'qfreplace', {context -> execute('let g:bar = 1')})
-	nnoremap <silent><buffer><expr> r
-				\ denite#do_map('do_action', 'qfreplace')
-
-	nnoremap <silent><buffer><expr> f 
-				\ denite#do_map('do_action', 'quickfix')
+	" call denite#custom#action('file', 'qfreplace', {context -> execute('let g:bar = 1')})
+	"
+	" 
+	" nnoremap <silent><buffer><expr> f 
+	"			\ denite#do_map('do_action', 'quickfix')
 
 
 	" call denite#custom#action('file', 'test2',
@@ -93,6 +115,7 @@ function! s:denite_my_settings() abort
 	" call denite#custom#action('file', 'test', {context -> execute("echo 'testtest'")})
 	" nnoremap <silent><buffer><expr> t
 	"			\ denite#do_map('do_action','test')
+
 
 
 	"  ========================================================================================
