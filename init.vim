@@ -49,6 +49,8 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+let g:dein#auto_recache = 1
 " End Install plugins =======================================================
 
 runtime! base/*.vim

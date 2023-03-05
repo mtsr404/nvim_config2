@@ -69,15 +69,26 @@ repo = 'thinca/vim-quickrun'
 [[plugins]]
  repo = 'nvim-lualine/lualine.nvim'
 
+
+# vim標準の正規表現によるシンタックスハイライトではなく、
+# 構文解析によるシンタックスハイライトを提供するプラグイン
 [[plugins]]
  repo = 'nvim-treesitter/nvim-treesitter'
 
+# treesitterをカスタマイズするために以下のコマンドを追加する
+# :TSPlaygroundToggle: 与えられたバッファの構文木を表示
+# :TSHighlightCapturesUnderCursor: カーソル下のシンタックスハイライトグループを表示
+[[plugins]]
+ repo = 'nvim-treesitter/playground'
 
-
+# #FFFFFFとかrgba() とかをハイライトする
+[[plugins]]
+ repo ='norcalli/nvim-colorizer.lua'
+ 
 
 # YATS: Yet Another TypeScript Syntax
-[[plugins]]
-repo ='HerringtonDarkholme/yats.vim'
+# [[plugins]]
+# repo ='HerringtonDarkholme/yats.vim'
 
 [[plugins]]
 repo ='Shougo/context_filetype.vim'
@@ -129,11 +140,11 @@ repo = 'mtsr404/denite-gitr'
 repo = 'Valloric/MatchTagAlways'
 
 # カーソルがめっちゃ重くなる(.vue以外も)
-[[plugins]]
-repo = 'posva/vim-vue'
-hook_add = '''
-let g:vue_pre_processors = 'detect_on_enter'
-'''
+# [[plugins]]
+# repo = 'posva/vim-vue'
+# hook_add = '''
+# let g:vue_pre_processors = 'detect_on_enter'
+# '''
 
 
 [[plugins]]
@@ -148,6 +159,7 @@ nmap [file]f <Plug>(altr-forward)
 nmap [file]b <Plug>(altr-back)
 '''
 
+# Vlime is a Common Lisp dev environment for Vim
 [[plugins]]
 repo = 'vlime/vlime'
 rtp = 'vim/'
@@ -157,6 +169,21 @@ rtp = 'vim/'
 repo = 'github/copilot.vim'
 
 
+# Find And Replace Vim plugin
 [[plugins]]
 repo = 'brooth/far.vim'
 
+
+
+# colorscheme ===============================
+[[plugins]]
+repo = 'sainnhe/sonokai'
+
+[[plugins]]
+repo = 'ful1e5/onedark.nvim'
+
+[[plugins]]
+repo = 'rktjmp/lush.nvim'
+
+[[plugins]]
+repo = 'adisen99/apprentice.nvim'

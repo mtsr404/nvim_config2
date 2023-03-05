@@ -3,7 +3,7 @@ if exists('b:did_ftplugin')
 endif
 let b:did_ftplugin = 1
 
-syntax sync fromstart
+" syntax sync fromstart
 
 setlocal tabstop=2
 setlocal softtabstop=2
