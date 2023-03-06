@@ -54,5 +54,7 @@ let g:dein#auto_recache = 1
 " End Install plugins =======================================================
 
 runtime! base/*.vim
+runtime! base/*.lua
 runtime! plugins/*.vim
+runtime! plugins/*.lua
 runtime! local.vim

@@ -30,6 +30,8 @@ repo = 'Shougo/unite-outline'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 
+# Show Ex command output in a buffer
+# :Capture mes
 [[plugins]]
 repo = 'tyru/capture.vim'
 
@@ -130,8 +132,8 @@ repo ='cespare/vim-toml'
 repo = 'neoclide/coc.nvim'
 build = 'coc#util#install()'
 revo= 'release' 
-hook_add = '''
-'''
+# hook_add = '''
+# '''
 
 [[plugins]]
 repo = 'mtsr404/denite-gitr'
@@ -140,11 +142,11 @@ repo = 'mtsr404/denite-gitr'
 repo = 'Valloric/MatchTagAlways'
 
 # カーソルがめっちゃ重くなる(.vue以外も)
-# [[plugins]]
-# repo = 'posva/vim-vue'
-# hook_add = '''
-# let g:vue_pre_processors = 'detect_on_enter'
-# '''
+[[plugins]]
+repo = 'posva/vim-vue'
+hook_add = '''
+let g:vue_pre_processors = 'detect_on_enter'
+'''
 
 
 [[plugins]]
@@ -176,14 +178,55 @@ repo = 'brooth/far.vim'
 
 
 # colorscheme ===============================
-[[plugins]]
-repo = 'sainnhe/sonokai'
-
-[[plugins]]
-repo = 'ful1e5/onedark.nvim'
-
+# Lush is a colorscheme creation aid for Neovim. It gives you real time feedback as you edit
 [[plugins]]
 repo = 'rktjmp/lush.nvim'
 
+
+# molokaiと同じく赤が強すぎ
+[[plugins]]
+repo = 'sainnhe/sonokai'
+
+# WARNING typescriptのtree-sitterを狂わせるから入れちゃ駄目
+# [[plugins]]
+# repo = 'ful1e5/onedark.nvim'
+
+
 [[plugins]]
 repo = 'adisen99/apprentice.nvim'
+
+# 文字色は悪くないけど背景色が真っ黒
+# 青系が強すぎる
+[[plugins]]
+repo = 'nyoom-engineering/oxocarbon.nvim'
+
+# 背景が青すぎて見にくい
+# 背景変えれば悪くないかも
+[[plugins]]
+repo = 'mhartington/oceanic-next'
+
+# 悪くないかも
+[[plugins]]
+repo = 'glepnir/zephyr-nvim'
+
+
+# treesitterじゃなければ
+# treesitterだとタグが全部赤になる
+[[plugins]]
+repo = 'Th3Whit3Wolf/onebuddy'
+
+[[plugins]]
+repo = 'tjdevries/colorbuddy.vim'
+
+
+[[plugins]]
+repo = 'Th3Whit3Wolf/space-nvim'
+
+# あり
+[[plugins]]
+repo = 'sainnhe/everforest'
+# hi Normal ctermfg=223 ctermbg=235 guifg=#d3c6aa guibg=#2b3036
+hook_add = '''
+	let g:everforest_colors_override = {'bg0': ['#2b3036', '234'] }
+'''
+

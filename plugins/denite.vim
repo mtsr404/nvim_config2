@@ -253,6 +253,17 @@ call denite#custom#var('grep', {
 			\ 'final_opts': [],
 			\ })
 
+
+call denite#custom#alias('source', 'grep/all', 'grep')
+call denite#custom#var('grep/all', {
+			\ 'command': ['ag'],
+			\ 'default_opts': ['-i', '--vimgrep', '-a', '--hidden'],
+			\ 'recursive_opts': [],
+			\ 'pattern_opt': [],
+			\ 'separator': ['--'],
+			\ 'final_opts': [],
+			\ })
+
 " Specify multiple paths in grep source
 "call denite#start([{'name': 'grep',
 "      \ 'args': [['a.vim', 'b.vim'], '', 'pattern']}])
@@ -335,11 +346,11 @@ call denite#custom#option('default', s:denite_default_options)
 " ファイルを開く際のデフォルトアクションを tabswitch にする
 call denite#custom#kind('file', 'default_action', 'tabswitch')
 
+call denite#custom#alias('source', 'file/rec/giteco', 'file/rec')
 let s:ignore_globs = [ '.git/', '.ropeproject/', '__pycache__/',
 			\   'venv/', 'images/', '*.min.*', 'img/', 'fonts/', 'node_modules', 'vendor']
 
 
-call denite#custom#alias('source', 'file/rec/giteco', 'file/rec')
 " そもそも ag のレベルで検索対象からはずす
 call denite#custom#var('file/rec/giteco', 'command',[
       \ 'ag',
@@ -354,6 +365,6 @@ call denite#custom#var('file/rec/giteco', 'command',[
 
 nnoremap <C-e> :DeniteProjectDir file/rec/giteco<CR>
 nnoremap <C-f> :DeniteProjectDir grep<CR>
-nnoremap [Denite]ae :DeniteProjectDir file/rec<CR>
-nnoremap [Denite]af :DeniteProjectDir grep<CR>
+nnoremap [Denite]ae :Denite file/rec<CR>
+nnoremap [Denite]af :DeniteProjectDir grep/all<CR>
 
