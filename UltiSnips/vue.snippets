@@ -1,0 +1,42 @@
+snippet t "tag" i
+<${1}>${0}</$1>
+endsnippet
+
+snippet cl "class" i
+class="${1}"
+endsnippet
+
+snippet div "div" i
+<div ${1}></div>
+endsnippet
+
+snippet br "br" i
+<br>
+endsnippet
+
+snippet skelton
+<template>
+	<div class="${1}">
+	</div>
+</template>
+<script lang="ts">
+import {Watch,Prop, Component, Vue } from 'vue-property-decorator'
+
+@Component({
+components: {
+}
+})
+export default class ${0} extends Vue {
+};
+</script>
+<style lang="scss" scoped>
+	.$1{
+	}
+</style>
+endsnippet
+
+snippet style
+<style lang="scss" scoped>
+	@import "../sass/variables";
+</style>
+endsnippet

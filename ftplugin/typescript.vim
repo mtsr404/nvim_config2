@@ -11,4 +11,4 @@ setlocal shiftwidth=2
 setlocal expandtab
 
 " disable deoplete for coc
-call deoplete#custom#buffer_option('auto_complete', v:false)
+" call deoplete#custom#buffer_option('auto_complete', v:false)

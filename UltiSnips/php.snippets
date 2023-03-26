@@ -1,0 +1,81 @@
+snippet ai
+'${1}' => ${2},
+endsnippet
+
+snippet th
+$this->${1}
+endsnippet
+
+snippet thisc
+$this->${1} = \$$1;
+endsnippet
+
+
+snippet collectMap
+collect(${1})
+	->map(function($e)${2:use}{
+		${3}
+	})${0}
+endsnippet
+
+snippet collectReduce
+collect(${1})
+	->reduce(function($acc,$e)${2:use}{
+		${3}
+	},${4:default})${0}
+endsnippet
+
+snippet useValidator
+use Validator;
+use Illuminate\Validation\Rule;
+endsnippet
+
+snippet valid
+$validator = Validator::make(${1:target},[
+	${2:rules}
+]);
+if($validator->fails()){
+	throw new \InvalidArgumentException($validator->errors()->first());
+}
+${0}
+endsnippet
+
+snippet useModels
+use App\Models\\${1};
+endsnippet
+
+snippet useExceptions
+use App\Exceptions\\${1}Exception;
+endsnippet
+
+
+snippet useLog
+use Illuminate\Support\Facades\Log;
+endsnippet
+
+snippet logInfo
+Log::info(${1});
+endsnippet
+
+
+
+snippet t "tag" i
+<${1}>${0}</$1>
+endsnippet
+
+snippet cl "class" i
+class="${1}"
+endsnippet
+
+snippet div "div" i
+<div ${1}></div>
+endsnippet
+
+snippet img
+<img src="${1}"/>
+endsnippet
+
+snippet br
+<br>
+endsnippet
+

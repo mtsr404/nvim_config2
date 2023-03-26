@@ -137,7 +137,7 @@ function! s:denite_filter_my_settings() abort
     augroup END
 
 	" フィルタバッファでは自動補完を無効にしておく
-    call deoplete#custom#buffer_option('auto_complete', v:false)
+    " call deoplete#custom#buffer_option('auto_complete', v:false)
 
 
 	" フィルタバッファでC-cでDenite終了

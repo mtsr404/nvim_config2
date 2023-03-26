@@ -23,11 +23,14 @@ let s:dein_dir      = g:xdg_dir . 'nvim/.cache/dein/'
 let s:dein_repo_dir = g:xdg_dir . 'nvim/.cache/dein/repos/' . dein_path
 
 
+
+
 " dein 初期化 ===============================================================
 " dein.vimがなければインストールする
 if !isdirectory(expand(s:dein_repo_dir))
   execute '!git clone ' . dein_url s:dein_repo_dir 
 endif
+
 " dein.vimをruntimepathへ追加
 let &runtimepath = s:dein_repo_dir . "," . &runtimepath
 
@@ -55,6 +58,8 @@ let g:dein#auto_recache = 1
 
 runtime! base/*.vim
 runtime! base/*.lua
+
 runtime! plugins/*.vim
 runtime! plugins/*.lua
+
 runtime! local.vim

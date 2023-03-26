@@ -73,7 +73,13 @@ hi Special         ctermfg=65 guifg=#bcbcbc
 hi Identifier      ctermfg=67 guifg=#5f87af
 hi Statement       ctermfg=110 guifg=#8fafd7
 hi PreProc         ctermfg=66 guifg=#5f8787
-hi Type            ctermfg=103 guifg=#8787af
+
+" hi Type            ctermfg=103 guifg=#8787af
+hi Type            ctermfg=103 guifg=#9b91c2
+" hi Function        ctermfg=229 guifg=#ffffaf
+hi Function        ctermfg=229 guifg=#dcd79a
+
+
 hi Underlined      cterm=underline ctermfg=66 gui=underline guifg=#5f8787
 
 hi NormalText      ctermfg=65 guifg=#bcbcbc
@@ -89,7 +95,7 @@ hi Character       ctermfg=180 guifg=#d3b987
 hi link Number Constant
 hi link Boolean Constant
 hi link Float Number
-hi Function        ctermfg=229 guifg=#ffffaf
+
 hi link Conditional Statement
 hi Label           ctermfg=180 guifg=#d3b987
 hi Keyword         ctermfg=110 guifg=#d7a78e
@@ -109,6 +115,7 @@ hi link @property NormalText
 " hi link @property.scss Type
 
 hi link @variable.php phpIdentifier
+hi link @constructor.php Type
 
 
 
