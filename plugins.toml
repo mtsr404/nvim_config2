@@ -261,3 +261,9 @@ hook_add = '''
 	let g:everforest_colors_override = {'bg0': ['#2b3036', '234'] }
 '''
 
+
+# vimfilerがバグる
+# [[plugins]]
+# repo = 'romgrk/barbar.nvim'
+
+
